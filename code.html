@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HÁBITAT | Encontrá un lugar que se sienta tuyo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .arch-line {
+                @apply relative;
+            }
+            .arch-line::after {
+                content: '';
+                @apply absolute bg-brand-taupe/40 transition-all duration-700 ease-out;
+            }
+            .arch-line-h::after {
+                @apply h-[1px] w-8 top-1/2 -translate-y-1/2 left-full ml-4 group-hover:w-16;
+            }
+            .arch-line-v::before {
+                content: '';
+                @apply absolute w-[1px] h-8 bg-brand-taupe/40 bottom-full left-0 mb-4;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "brand-ivory": "#FBF6F0",
+                        "brand-sand": "#F3E1DE",
+                        "brand-latte": "#E9D8C4",
+                        "brand-caramel": "#E4C7A8",
+                        "brand-taupe": "#CBB9A6",
+                        "brand-charcoal": "#2A2A2A",
+                        "background": "#FBF6F0",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "on-background": "#2A2A2A",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#22005d",
+                        "outline-variant": "#CBB9A6",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#F3E1DE",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-container": "#E9D8C4",
+                        "surface-tint": "#2A2A2A",
+                        "primary": "#2A2A2A",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#FBF6F0",
+                        "on-secondary-container": "#645a7d",
+                        "inverse-on-surface": "#FBF6F0",
+                        "secondary-container": "#e1d4fd",
+                        "on-secondary-fixed": "#1f1635",
+                        "on-surface": "#2A2A2A",
+                        "on-tertiary-container": "#503d00",
+                        "surface-container-highest": "#E4C7A8",
+                        "surface-container-low": "#FBF6F0",
+                        "tertiary-container": "#c9a74d",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "on-primary": "#FBF6F0",
+                        "surface-dim": "#F3E1DE",
+                        "outline": "#CBB9A6",
+                        "on-tertiary-fixed": "#241a00",
+                        "inverse-surface": "#2A2A2A",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4A4A4A",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "surface-container-high": "#E9D8C4",
+                        "tertiary": "#765b00",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdf93",
+                        "surface-bright": "#FBF6F0",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#2A2A2A",
+                        "surface-container": "#F3E1DE",
+                        "primary-fixed-dim": "#cfbcff",
+                        "inverse-primary": "#cfbcff",
+                        "secondary": "#63597c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "section-gap": "120px",
+                        "margin-mobile": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "sans": ["Inter", "sans-serif"],
+                        "technical-sm": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "display-xl": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "technical-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "label-caps": ["10px", { "lineHeight": "12px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "display-xl": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-ivory text-brand-charcoal font-sans antialiased overflow-x-hidden">
+<!-- Top Navigation (Shared Component) -->
+<nav class="fixed w-full z-50 transition-colors duration-300 bg-brand-ivory/90 backdrop-blur-md border-b border-brand-taupe/20 flex justify-between items-center px-margin-desktop py-6 max-w-container-max mx-auto left-0 right-0 top-0">
+<a class="text-headline-md font-light text-brand-charcoal tracking-tighter flex items-center gap-2" href="#">
+<span class="w-4 h-4 border border-brand-charcoal border-b-0 inline-block relative before:absolute before:inset-0 before:border-b before:border-brand-charcoal before:top-1/2"></span>
+        HÁBITAT
+    </a>
+<div class="hidden md:flex space-x-8">
+<!-- No active state on Home -->
+<a class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest hover:text-brand-charcoal transition-colors duration-300" href="#">PROPIEDADES</a>
+<a class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest hover:text-brand-charcoal transition-colors duration-300" href="#">BARRIOS</a>
+<a class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest hover:text-brand-charcoal transition-colors duration-300" href="#">MAPA</a>
+<a class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest hover:text-brand-charcoal transition-colors duration-300" href="#">NOSOTROS</a>
+<a class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest hover:text-brand-charcoal transition-colors duration-300" href="#">CONTACTO</a>
+</div>
+<div class="flex items-center space-x-6">
+<span class="text-brand-charcoal/70 font-medium text-technical-sm tracking-widest">ES/EN</span>
+<button class="bg-brand-charcoal text-brand-ivory font-medium text-technical-sm px-6 py-3 tracking-widest hover:bg-brand-taupe hover:text-brand-charcoal transition-colors duration-300 rounded-none scale-95 duration-200">COORDINAR VISITA</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex flex-col justify-center pb-section-gap px-margin-desktop pt-[120px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="High-end editorial architectural interior photography of a bright, warm, and natural Buenos Aires apartment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI-yLLCi0-ey32S2yzkTHHJ_N4tVvp4VzqIxRIvL_sPKVl-ELk7upgGLPOkBX2eW-eFMf7ezmP7awN-fw1oOZdDLBwqx5696G8fAEB8ippn8--ZQYeOHbJovG2kB3nJuvzkUkDGNrJ_fIVmBMpvPel1VESr8Fi867W2QRKXVSTSnZK-2IrJNV45vhOsgByuGbJe6sva67Gbd1ju4FSvCxsAMXVTkbVIRHv4XLm2mXQamlNIErESDUn_A"/>
+<div class="absolute inset-0 bg-brand-charcoal/20"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-brand-charcoal/40 to-transparent"></div>
+<div class="absolute bottom-12 right-margin-desktop text-brand-ivory/80 text-label-caps tracking-widest font-mono z-10">
+            34°36'S · 58°23'W
+        </div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto flex flex-col justify-end h-full pb-12">
+<div class="w-full md:w-[60%]">
+<span class="text-label-caps font-medium text-brand-ivory/80 tracking-[0.2em] block mb-6 uppercase">ALQUILERES · BUENOS AIRES</span>
+<h1 class="text-display-xl font-light text-brand-ivory mb-6 leading-tight">
+                    Encontrá un lugar que se sienta tuyo.
+                </h1>
+<p class="text-body-lg font-normal text-brand-ivory/90 max-w-xl mb-12">
+                    Propiedades seleccionadas en Buenos Aires para vivir, invertir y empezar una nueva etapa. Tu lugar, a tu tiempo.
+                </p>
+</div>
+<!-- Search Bar -->
+<div class="bg-brand-ivory/95 border border-brand-taupe/30 p-6 flex flex-col md:flex-row gap-6 items-end w-full backdrop-blur-md shadow-sm">
+<div class="flex-1 w-full border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Ubicación</label>
+<input class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0 placeholder:text-brand-taupe text-brand-charcoal" placeholder="Barrio o zona" type="text"/>
+</div>
+<div class="flex-1 w-full border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Tipo de propiedad</label>
+<select class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0 text-brand-charcoal">
+<option>Departamento</option>
+<option>Casa</option>
+<option>PH</option>
+</select>
+</div>
+<div class="flex-1 w-full border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Ambientes</label>
+<select class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0 text-brand-charcoal">
+<option>Todos</option>
+<option>1-2</option>
+<option>3+</option>
+</select>
+</div>
+<div class="flex-1 w-full border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Fecha disponible</label>
+<input class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0 text-brand-charcoal placeholder:text-brand-taupe" placeholder="Inmediata" type="text"/>
+</div>
+<div class="flex items-center">
+<button class="text-label-caps font-medium text-brand-charcoal/60 hover:text-brand-charcoal tracking-widest uppercase transition-colors whitespace-nowrap px-4">+ MÁS FILTROS</button>
+<button class="bg-brand-charcoal text-brand-ivory font-medium text-technical-sm px-8 py-4 tracking-widest hover:bg-brand-taupe hover:text-brand-charcoal transition-colors duration-300 w-full md:w-auto uppercase">Buscar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Propiedades Destacadas -->
+<section class="py-section-gap px-margin-desktop bg-brand-ivory max-w-container-max mx-auto">
+<div class="grid grid-cols-12 gap-gutter mb-16">
+<div class="col-span-12 md:col-span-8 group">
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">Propiedades Destacadas</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal">Espacios para vivir a tu manera.</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-end">
+<!-- Card 1 -->
+<article class="group cursor-pointer">
+<div class="relative overflow-hidden aspect-[3/4] mb-6">
+<img class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="A sunlit balcony in Buenos Aires with wrought-iron railings, lush potted ferns and bougainvillea, overlooking a cobblestone street lined with tall trees." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+<div class="absolute top-4 left-4 flex flex-wrap gap-2">
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">PET FRIENDLY</span>
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">BALCÓN</span>
+</div>
+</div>
+<div class="border-t border-brand-taupe/40 pt-4 relative">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-headline-md font-light text-brand-charcoal">Palermo Chico</h3>
+<span class="text-technical-sm font-medium text-brand-charcoal/60 tracking-widest uppercase">Alquiler</span>
+</div>
+<p class="text-body-md font-normal text-brand-charcoal/70 mb-2">Av. Libertador al 2900</p>
+<div class="text-label-caps font-medium text-brand-charcoal/60 mb-4 tracking-widest flex items-center gap-2">
+<span class="text-[8px] text-brand-taupe">●</span> DISPONIBLE AHORA
+    </div>
+<div class="flex justify-between items-end">
+<span class="text-body-lg font-medium text-brand-charcoal">USD 1.500 / mes</span>
+<div class="text-technical-sm font-normal text-brand-charcoal/70 text-right">
+<span>120m²</span> | <span>4 amb.</span> | <span>2 baños</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group cursor-pointer">
+<div class="relative overflow-hidden aspect-[4/5] mb-6">
+<img class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="A minimalist living room interior with a large geometric window casting sharp shadows on white walls, featuring a low-profile cream sofa and a singular modern art piece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsAMICsAdSNBinfTvlp33mG1hu5BeMROH7wX3yB0jFq2_vtH4wvvIH1P_BzhX3fw08GKNOnIBQwnjyWC75vpUkh5895n0nyZlRJnJCNDMmg2ckX9adxWiSsDO53MkBguddOjCztH6sYZCIjZyh-T0411ko0h866K6PAzrd6FnQwCzNrjGh5XMjpdoxgOhJgHZNYdVLoosCGORIRlzQUmhTyVLfLB--LCtCGD-TMhXoTtWW0glRorM5aA"/>
+<div class="absolute top-4 left-4 flex flex-wrap gap-2">
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">TERRAZA</span>
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">AMOBLADO</span>
+</div>
+</div>
+<div class="border-t border-brand-taupe/40 pt-4 relative">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-headline-md font-light text-brand-charcoal">Colegiales</h3>
+<span class="text-technical-sm font-medium text-brand-charcoal/60 tracking-widest uppercase">Alquiler</span>
+</div>
+<p class="text-body-md font-normal text-brand-charcoal/70 mb-2">Concepción Arenal 3200</p>
+<div class="text-label-caps font-medium text-brand-charcoal/60 mb-4 tracking-widest flex items-center gap-2">
+<span class="text-[8px] text-brand-taupe">●</span> DISPONIBLE 14 SEP
+    </div>
+<div class="flex justify-between items-end">
+<span class="text-body-lg font-medium text-brand-charcoal">USD 1.200 / mes</span>
+<div class="text-technical-sm font-normal text-brand-charcoal/70 text-right">
+<span>85m²</span> | <span>3 amb.</span> | <span>1 baño</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group cursor-pointer">
+<div class="relative overflow-hidden aspect-[3/4] mb-6">
+<img class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="A modern kitchen with warm oak cabinetry, poured concrete countertops, and matte black fixtures, softly lit by a pendant lamp in a minimalist apartment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB57S5vyM41xrGm7UMEMUY5DYlnuYXeBTbN5onJXrFfZpbmixBPRw9KHIZQdBCqUcOneTjArDgroGQeohKrcPtk9u_LPTz7qdKX7Pd3d5CU3ljIhq7GplOHsebXmdlO7C9UX6F2GJXSfgKHA5QWPndSXoOP8SjbvfRMn1VonXx7b_R2ndmCC99_eQG7G3iYUMvGXbImlbEtR5qvpFN9LZ7G9IltJAPMLROR-3JUZpSBYOis1-lk_dU4Zw"/>
+<div class="absolute top-4 left-4 flex flex-wrap gap-2">
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">A ESTRENAR</span>
+<span class="bg-brand-ivory/90 backdrop-blur-sm px-3 py-1 text-label-caps font-medium text-brand-charcoal uppercase tracking-widest border border-brand-taupe/30">PISCINA</span>
+</div>
+</div>
+<div class="border-t border-brand-taupe/40 pt-4 relative">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="text-headline-md font-light text-brand-charcoal">Belgrano R</h3>
+<span class="text-technical-sm font-medium text-brand-charcoal/60 tracking-widest uppercase">Alquiler</span>
+</div>
+<p class="text-body-md font-normal text-brand-charcoal/70 mb-2">La Pampa 3500</p>
+<div class="text-label-caps font-medium text-brand-charcoal/60 mb-4 tracking-widest flex items-center gap-2">
+<span class="text-[8px] text-brand-taupe">●</span> DISPONIBLE AHORA
+    </div>
+<div class="flex justify-between items-end">
+<span class="text-body-lg font-medium text-brand-charcoal">USD 1.800 / mes</span>
+<div class="text-technical-sm font-normal text-brand-charcoal/70 text-right">
+<span>150m²</span> | <span>5 amb.</span> | <span>3 baños</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION A (NEIGHBORHOODS) -->
+<section class="py-section-gap px-0 bg-brand-sand">
+<div class="px-margin-desktop max-w-container-max mx-auto mb-12 flex justify-between items-end group">
+<div>
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">EXPLORÁ BUENOS AIRES</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal">Buenos Aires, barrio por barrio.</h2>
+</div>
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest hidden md:block uppercase">ARRASTRÁ PARA EXPLORAR →</span>
+</div>
+<div class="flex overflow-x-auto gap-8 px-margin-desktop pb-8 snap-x snap-mandatory scrollbar-hide">
+<div class="min-w-[280px] md:min-w-[320px] snap-center group cursor-pointer">
+<div class="overflow-hidden mb-4">
+<img class="w-full h-[450px] object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="Editorial vertical photography of a balcony with plants overlooking a quiet street in Recoleta, Buenos Aires." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+</div>
+<h3 class="text-headline-md font-light text-brand-charcoal border-t border-brand-taupe/40 pt-4">Recoleta</h3>
+</div>
+<div class="min-w-[300px] md:min-w-[380px] snap-center group cursor-pointer">
+<div class="overflow-hidden mb-4">
+<img class="w-full h-[500px] object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="Editorial vertical photography of a charming street in Palermo, Buenos Aires." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+</div>
+<h3 class="text-headline-md font-light text-brand-charcoal border-t border-brand-taupe/40 pt-4">Palermo</h3>
+</div>
+<div class="min-w-[280px] md:min-w-[320px] snap-center group cursor-pointer">
+<div class="overflow-hidden mb-4">
+<img class="w-full h-[450px] object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]" data-alt="Placeholder image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+</div>
+<h3 class="text-headline-md font-light text-brand-charcoal border-t border-brand-taupe/40 pt-4">Belgrano</h3>
+</div>
+<div class="min-w-[280px] md:min-w-[320px] snap-center opacity-50 pr-margin-desktop">
+<div class="overflow-hidden mb-4 bg-brand-latte h-[450px]"></div>
+<h3 class="text-headline-md font-light text-brand-charcoal border-t border-brand-taupe/40 pt-4">Colegiales</h3>
+</div>
+</div>
+</section>
+<!-- SECTION B (INTERACTIVE MAP) -->
+<section class="py-section-gap px-margin-desktop bg-brand-ivory max-w-container-max mx-auto">
+<div class="mb-12 group">
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">EXPLORÁ EL MAPA</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal">Encontrá tu próximo lugar desde el mapa.</h2>
+</div>
+<div class="flex flex-col md:flex-row h-[700px] border border-brand-taupe/30">
+<div class="w-full md:w-[35%] bg-brand-ivory p-6 border-r border-brand-taupe/30 overflow-y-auto">
+<!-- Filters / List Placeholder -->
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-brand-taupe/30">
+<span class="text-label-caps font-medium text-brand-charcoal/80 tracking-widest">32 PROPIEDADES</span>
+<span class="material-symbols-outlined text-brand-charcoal/60 cursor-pointer hover:text-brand-charcoal transition-colors">filter_list</span>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 border-b border-brand-taupe/20 pb-6 group cursor-pointer">
+<img class="w-24 h-24 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsAMICsAdSNBinfTvlp33mG1hu5BeMROH7wX3yB0jFq2_vtH4wvvIH1P_BzhX3fw08GKNOnIBQwnjyWC75vpUkh5895n0nyZlRJnJCNDMmg2ckX9adxWiSsDO53MkBguddOjCztH6sYZCIjZyh-T0411ko0h866K6PAzrd6FnQwCzNrjGh5XMjpdoxgOhJgHZNYdVLoosCGORIRlzQUmhTyVLfLB--LCtCGD-TMhXoTtWW0glRorM5aA"/>
+<div>
+<h4 class="text-body-md font-medium text-brand-charcoal mb-1">Colegiales</h4>
+<p class="text-technical-sm text-brand-charcoal/60 mb-2">Concepción Arenal 3200</p>
+<p class="text-body-md font-medium">USD 1.200 / mes</p>
+</div>
+</div>
+<div class="flex gap-4 border-b border-brand-taupe/20 pb-6 group cursor-pointer">
+<img class="w-24 h-24 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+<div>
+<h4 class="text-body-md font-medium text-brand-charcoal mb-1">Palermo Chico</h4>
+<p class="text-technical-sm text-brand-charcoal/60 mb-2">Av. Libertador al 2900</p>
+<p class="text-body-md font-medium">USD 1.500 / mes</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-[65%] bg-[#F0EBE1] relative">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20" style="background-image: radial-gradient(#CBB9A6 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Map Markers -->
+<div class="absolute top-[30%] left-[40%] group cursor-pointer">
+<div class="bg-brand-charcoal text-brand-ivory text-technical-sm font-medium px-3 py-1.5 flex items-center gap-2 shadow-sm hover:scale-105 transition-transform">
+<span class="w-2.5 h-2.5 border border-brand-ivory border-b-0 inline-block relative before:absolute before:inset-0 before:border-b before:border-brand-ivory before:top-1/2"></span>
+                    USD 1.200
+                </div>
+<!-- Mini Card Hover -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 bg-brand-ivory p-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-48 pointer-events-none z-10 border border-brand-taupe/30">
+<img class="w-full h-24 object-cover mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsAMICsAdSNBinfTvlp33mG1hu5BeMROH7wX3yB0jFq2_vtH4wvvIH1P_BzhX3fw08GKNOnIBQwnjyWC75vpUkh5895n0nyZlRJnJCNDMmg2ckX9adxWiSsDO53MkBguddOjCztH6sYZCIjZyh-T0411ko0h866K6PAzrd6FnQwCzNrjGh5XMjpdoxgOhJgHZNYdVLoosCGORIRlzQUmhTyVLfLB--LCtCGD-TMhXoTtWW0glRorM5aA"/>
+<p class="text-technical-sm font-medium mb-1">Colegiales</p>
+<div class="text-[8px] text-brand-charcoal/60 mb-2 tracking-widest flex items-center gap-1 uppercase">
+<span class="text-brand-taupe">●</span> DISPONIBLE 14 SEP
+                    </div>
+<span class="text-[10px] text-brand-charcoal border-b border-brand-charcoal pb-0.5">VER PROPIEDAD →</span>
+</div>
+</div>
+<div class="absolute top-[60%] left-[65%] group cursor-pointer">
+<div class="bg-brand-ivory text-brand-charcoal border border-brand-taupe/50 text-technical-sm font-medium px-3 py-1.5 flex items-center gap-2 shadow-sm hover:scale-105 transition-transform">
+<span class="w-2.5 h-2.5 border border-brand-charcoal border-b-0 inline-block relative before:absolute before:inset-0 before:border-b before:border-brand-charcoal before:top-1/2"></span>
+                    USD 1.500
+                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION C (PROCESS) -->
+<section class="py-section-gap px-margin-desktop bg-brand-latte max-w-container-max mx-auto border-t border-brand-taupe/20">
+<div class="grid grid-cols-12 gap-gutter mb-24">
+<div class="col-span-12 md:col-span-8 md:col-start-3 text-center group">
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">UNA FORMA MÁS SIMPLE</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal">Encontrar tu próximo hogar no debería ser complicado.</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-center relative">
+<div class="hidden md:block absolute top-12 left-[16.66%] right-[16.66%] h-[1px] bg-brand-taupe/30"></div>
+<div class="relative group">
+<h3 class="text-[120px] font-light text-brand-taupe/20 leading-none mb-4 arch-line arch-line-v mx-auto w-fit">01</h3>
+<h4 class="text-headline-md font-light text-brand-charcoal mb-4">BUSCÁ</h4>
+<p class="text-body-md font-normal text-brand-charcoal/80">Explorá nuestra selección curada de propiedades.</p>
+</div>
+<div class="relative group">
+<h3 class="text-[120px] font-light text-brand-taupe/20 leading-none mb-4 arch-line arch-line-v mx-auto w-fit">02</h3>
+<h4 class="text-headline-md font-light text-brand-charcoal mb-4">COORDINÁ</h4>
+<p class="text-body-md font-normal text-brand-charcoal/80">Agenda una visita en el horario que mejor te quede.</p>
+</div>
+<div class="relative group">
+<h3 class="text-[120px] font-light text-brand-taupe/20 leading-none mb-4 arch-line arch-line-v mx-auto w-fit">03</h3>
+<h4 class="text-headline-md font-light text-brand-charcoal mb-4">VISITÁ</h4>
+<p class="text-body-md font-normal text-brand-charcoal/80">Conocé el espacio y empezá a imaginar tu nueva vida.</p>
+</div>
+</div>
+</section>
+<!-- SECTION D (TESTIMONIALS) -->
+<!-- SECTION E (ABOUT) -->
+<section class="py-section-gap px-margin-desktop bg-brand-sand max-w-container-max mx-auto border-t border-brand-taupe/20">
+<div class="grid grid-cols-12 gap-gutter mb-16">
+<div class="col-span-12 md:col-span-5 group">
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">COORDINÁ TU VISITA</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal mb-6">Conocé tu próximo lugar cuando quieras.</h2>
+<p class="text-body-md font-normal text-brand-charcoal/80 mb-12">Elegí la propiedad, seleccioná un día y encontrá el horario que mejor te quede.</p>
+<div class="bg-brand-ivory/50 border border-brand-taupe/30 p-4 flex gap-4 items-center mb-8">
+<img alt="Humboldt 1850" class="w-20 h-20 object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XJREovpmA1H-C5D0IR_w7CYdm78veow_d0BDa_o46hmKOWuM1cf774JFAn_m3Xa-_IqOvQTdtuEKJWTucX2oyqB3At9CMo0VSFhOP46xW4wx47obiF9Z_uzecOHGc45nssqiHUHmauG7-bF3UX4t6XV3KJw8ywsrLw_0wG3lI_9Uf7VnPg2Vjxnvz28tztQBjWQXoVL2I7AV73rUY8DbgvFi5-ux60Xc5hOHydZSIEC_Gssjv85ocnDGT2"/>
+<div>
+<p class="text-label-caps text-brand-charcoal/60 uppercase mb-1">Propiedad seleccionada</p>
+<p class="text-body-md font-medium text-brand-charcoal">Humboldt 1850, Palermo</p>
+</div>
+</div>
+<div class="mb-8">
+<p class="text-label-caps text-brand-charcoal/60 uppercase mb-4">Horarios disponibles para el 15 de Septiembre</p>
+<div class="grid grid-cols-3 gap-2">
+<button class="border border-brand-taupe/40 py-3 text-technical-sm hover:bg-brand-taupe/20 transition-colors">10:00</button>
+<button class="border border-brand-taupe/40 py-3 text-technical-sm hover:bg-brand-taupe/20 transition-colors">11:30</button>
+<button class="bg-brand-caramel border border-brand-caramel py-3 text-technical-sm font-medium">14:00</button>
+<button class="border border-brand-taupe/40 py-3 text-technical-sm hover:bg-brand-taupe/20 transition-colors">16:30</button>
+<button class="border border-brand-taupe/40 py-3 text-technical-sm hover:bg-brand-taupe/20 transition-colors">18:00</button>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<div class="border border-brand-taupe/30 p-8 bg-brand-ivory/30">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-label-caps font-medium tracking-widest">SEPTIEMBRE 2026</h3>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer text-brand-charcoal/40">chevron_left</span>
+<span class="material-symbols-outlined cursor-pointer">chevron_right</span>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-y-4 text-center">
+<div class="text-[10px] font-medium text-brand-charcoal/40">LUN</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">MAR</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">MIÉ</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">JUE</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">VIE</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">SÁB</div>
+<div class="text-[10px] font-medium text-brand-charcoal/40">DOM</div>
+<div class="py-2 text-technical-sm opacity-20">31</div>
+<div class="py-2 text-technical-sm">1</div>
+<div class="py-2 text-technical-sm">2</div>
+<div class="py-2 text-technical-sm">3</div>
+<div class="py-2 text-technical-sm">4</div>
+<div class="py-2 text-technical-sm">5</div>
+<div class="py-2 text-technical-sm">6</div>
+<div class="py-2 text-technical-sm">7</div>
+<div class="py-2 text-technical-sm">8</div>
+<div class="py-2 text-technical-sm">9</div>
+<div class="py-2 text-technical-sm">10</div>
+<div class="py-2 text-technical-sm">11</div>
+<div class="py-2 text-technical-sm">12</div>
+<div class="py-2 text-technical-sm">13</div>
+<div class="py-2 text-technical-sm">14</div>
+<div class="py-2 text-technical-sm bg-brand-charcoal text-brand-ivory">15</div>
+<div class="py-2 text-technical-sm border border-brand-taupe/20">16</div>
+<div class="py-2 text-technical-sm border border-brand-taupe/20">17</div>
+<div class="py-2 text-technical-sm border border-brand-taupe/20">18</div>
+<div class="py-2 text-technical-sm">19</div>
+<div class="py-2 text-technical-sm">20</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-brand-taupe/30 pt-12">
+<form class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+<div class="border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Nombre y Apellido</label>
+<input class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0" placeholder="Tu nombre" type="text"/>
+</div>
+<div class="border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">WhatsApp</label>
+<input class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0" placeholder="+54 ..." type="text"/>
+</div>
+<div class="border-b border-brand-taupe/40 pb-2">
+<label class="text-label-caps font-medium text-brand-charcoal/60 block mb-2 uppercase">Email (Opcional)</label>
+<input class="w-full bg-transparent border-none p-0 text-body-md focus:ring-0" placeholder="hola@correo.com" type="email"/>
+</div>
+<button class="bg-brand-charcoal text-brand-ivory font-medium text-technical-sm py-4 tracking-widest hover:bg-brand-taupe hover:text-brand-charcoal transition-colors uppercase" type="button">Confirmar Visita</button>
+</form>
+<div class="mt-8 text-center">
+<a class="text-label-caps font-medium text-brand-charcoal/60 hover:text-brand-charcoal tracking-widest uppercase transition-colors border-b border-brand-taupe/40 pb-1" href="#">¿Preferís coordinarlo personalmente? WHATSAPP -&gt;</a>
+</div>
+</div>
+</section><section class="py-section-gap px-margin-desktop bg-brand-ivory max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-[45%] group">
+<span class="text-label-caps font-medium text-brand-charcoal/60 tracking-widest inline-block mb-4 uppercase arch-line arch-line-h">SOBRE HÁBITAT</span>
+<h2 class="text-headline-lg font-light text-brand-charcoal mb-6">Una inmobiliaria pensada desde otro lugar.</h2>
+<p class="text-body-md font-normal text-brand-charcoal/80">Creemos que buscar un hogar debe ser una experiencia transparente y simple. Nos enfocamos en propiedades seleccionadas con criterio, espacios que inspiran y un servicio personalizado que te acompaña en cada paso.</p>
+</div>
+<div class="w-full md:w-[55%] overflow-hidden">
+<img class="w-full h-auto object-cover aspect-[4/3] transition-transform duration-[1.5s] ease-out hover:scale-[1.03]" data-alt="Lifestyle photography of hands holding architectural keys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa0tTxzMDFZ_FzxkixXp_2_YybRTu_XG7tHCUBZpD8NwIAeYOO7KurbPwrFDzYn7d-ifgnF0GRIXxZiIVTPzceg3F_zKGdrB16DdVLoKxRHy37ML8OmbpIAnjI4uoLvzy9LakZj9erRm1_-ZmuiDqCwEuTWnjeICiP_KO6f3aIdXKvJ0XqbLWGvko2CtiSPVaqQI8gODC3nM6iAdSVxnNld054kYg-3z_gslQZrsiuIx7JbHxt7_ImEw"/>
+</div>
+</section>
+<!-- SECTION F (FINAL CTA) -->
+<section class="py-section-gap px-margin-desktop bg-brand-caramel max-w-container-max mx-auto text-center border-t border-brand-taupe/30">
+<h2 class="text-headline-lg font-light text-brand-charcoal mb-10 max-w-2xl mx-auto">Tu próximo lugar puede empezar acá.</h2>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-brand-charcoal text-brand-ivory font-medium text-technical-sm px-8 py-4 tracking-widest hover:bg-brand-taupe hover:text-brand-charcoal transition-colors duration-300 uppercase border border-brand-charcoal">EXPLORAR ALQUILERES</button>
+<button class="bg-transparent text-brand-charcoal font-medium text-technical-sm px-8 py-4 tracking-widest hover:bg-brand-ivory transition-colors duration-300 uppercase border border-brand-charcoal">COORDINAR VISITA</button>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-brand-charcoal border-t border-brand-charcoal mt-section-gap w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto text-brand-ivory/80">
+<div class="col-span-1 md:col-span-1">
+<a class="text-headline-md font-light text-brand-ivory tracking-tighter flex items-center gap-2 mb-8" href="#">
+<span class="w-4 h-4 border border-brand-ivory border-b-0 inline-block relative before:absolute before:inset-0 before:border-b before:border-brand-ivory before:top-1/2"></span>
+            HÁBITAT
+        </a>
+<p class="text-brand-ivory/60 font-medium text-technical-sm">© 2024 HÁBITAT. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex flex-col space-y-4">
+<a class="text-brand-ivory/80 font-medium text-technical-sm hover:text-brand-ivory transition-colors" href="#">PROPIEDADES</a>
+<a class="text-brand-ivory/80 font-medium text-technical-sm hover:text-brand-ivory transition-colors" href="#">BARRIOS</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-brand-ivory/80 font-medium text-technical-sm hover:text-brand-ivory transition-colors" href="#">NOSOTROS</a>
+<a class="text-brand-ivory/80 font-medium text-technical-sm hover:text-brand-ivory transition-colors" href="#">CONTACTO</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="text-brand-ivory/80 font-medium text-technical-sm hover:text-brand-ivory transition-colors" href="#">PRIVACY POLICY</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- WhatsApp Button -->
+<div class="fixed bottom-8 right-8 z-50 group">
+<a class="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-110 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">chat</span>
+</a>
+<div class="absolute right-16 top-1/2 -translate-y-1/2 bg-brand-charcoal text-brand-ivory text-technical-sm font-medium px-4 py-2 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+    ¿Te ayudamos a encontrar tu lugar?
+</div>
+</div>
+</body></html>
