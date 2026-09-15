@@ -1,6 +1,9 @@
 name: Deploy HÁBITAT
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
