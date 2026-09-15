@@ -8,12 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Prepare SSH key
+        shell: bash
+        env:
+          VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          echo "$VPS_SSH_KEY_B64" | base64 --decode > "$RUNNER_TEMP/habitat_ci"
+          chmod 600 "$RUNNER_TEMP/habitat_ci"
+
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
+          key_path: ${{ runner.temp }}/habitat_ci
           script: |
             set -e
             cd /var/www/habitat
